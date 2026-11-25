@@ -1,0 +1,19 @@
+IMPORTANTE: IMPORTAR O PROJETO EXISTENTE; NÃO CRIAR OUTRO DO ZERO.
+
+Você é o responsável por integrar e executar o projeto "PONTO 153 — Escalas e Folhas de Ponto" que acompanha este ZIP.
+
+INSTRUÇÕES OBRIGATÓRIAS:
+1. Leia README.md, docs/INSTRUCOES_AI_STUDIO.md, src/core.js, src/demo.js, src/main.js, src/print.js e src/styles.css ANTES de modificar qualquer arquivo.
+2. Preserve a estrutura atual de pastas e o estilo azul-marinho/branco do painel, o brasão, as telas responsivas e as folhas A4.
+3. Execute `npm install`, depois `npm run dev`; localize e conserte erros sem reescrever tudo.
+4. Inicie SEM credenciais Firebase no modo DEMONSTRAÇÃO. Os três usuários de exemplo não são contas reais.
+5. Teste: servidor cria permuta no calendário -> colega aceita -> RH recebe notificação e defere -> escala dos dois muda -> folha reflete a permuta.
+6. Teste: pedido de atestado fica pendente até decisão. Férias: lançamento/decisão exclusivo do RH. Dobra: exige análise. EXTRA fica VAZIA segundo a especificação anexa.
+7. Teste a impressão A4 de novembro e dezembro de 2026 em uma página por mês; destaque em cinza dias ímpares e em branco os pares. Não altere o modelo sem solicitar.
+8. Para PRODUÇÃO, use SOMENTE backend/functions e Firestore/Storage com as regras incluídas. Nunca substitua aprovação real por localStorage, nunca guarde senhas de usuários em texto e nunca exponha segredo de servidor no frontend.
+9. Não considere o login como batida oficial: login gera evento de acesso; ponto real é registro separado, com autorização, GPS e auditoria.
+10. Mostre ao usuário o que funciona em DEMONSTRAÇÃO e o que ainda exige configurar Firebase, e-mail, GPS e homologação do RH.
+
+NÃO REMOVER: calendário 12x36; sistema de permutas; aceite de colega; notificações para RH responsável; impressão; campos funcionais; papel A4; abertura em celular/PC; Antonieta; trilha de auditoria.
+
+ANTES DE PUBLICAR: rode `npm test`, verifique permissões em `backend/rules`, corrija eventuais erros e explique a necessidade de configurar a conta de RH com `backend/scripts/bootstrap-rh.mjs`.

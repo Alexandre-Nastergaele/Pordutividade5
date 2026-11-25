@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {addDays,daysDiff,isWorking,getMonthSheet,monthRange,weekName,validateRequest,haversineMeters} from '../src/core.js';
+const staff={uid:'a',anchorDate:'2026-11-02',role:'servidor'};
+test('dias da semana em novembro e dezembro 2026',()=>{assert.equal(weekName('2026-11-01'),'DOMINGO');assert.equal(weekName('2026-12-01'),'TERÇA');assert.equal(monthRange('2026-12').length,31)});
+test('12x36 atravessa meses sem reinicializar pares/ímpares',()=>{assert.equal(isWorking(staff,'2026-11-30'),true);assert.equal(isWorking(staff,'2026-12-01'),false);assert.equal(isWorking(staff,'2026-12-02'),true);});
+test('folha divide entrada e saída em dias sucessivos, extra vazia',()=>{const s=getMonthSheet(staff,'2026-12');assert.equal(s.rows[1].first,'19:00');assert.equal(s.rows[2].second,'07:00');assert.ok(s.rows.every(r=>r.extra===''));});
+test('permuta aprovada altera escala sem mudar original',()=>{const o={'a_2026-12-02':{state:'OFF'},'a_2026-12-03':{state:'ON'}};assert.equal(isWorking(staff,'2026-12-02',o),false);assert.equal(isWorking(staff,'2026-12-03',o),true)});
+test('ausência informa FÉRIAS em primeiro período',()=>{const s=getMonthSheet(staff,'2026-12',{'a_2026-12-02':{state:'FERIAS'}});assert.equal(s.rows[1].first,'FÉRIAS');assert.equal(s.rows[1].shift,false)});
+test('validação exige duas datas e colega para permuta',()=>assert.throws(()=>validateRequest({type:'PERMUTA',date:'2026-12-03'},staff,[staff])));
+test('distância geográfica com pontos iguais é zero',()=>assert.equal(haversineMeters({lat:-17,lng:-50},{lat:-17,lng:-50}),0));
+test('data transfronteiriça',()=>{assert.equal(addDays('2026-11-30',1),'2026-12-01');assert.equal(daysDiff('2026-12-02','2026-11-30'),2)});

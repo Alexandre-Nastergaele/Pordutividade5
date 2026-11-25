@@ -1,0 +1,12 @@
+{
+  "acao": "FERIAS | DEFINIR_PRAZO_E_AVISAR | ATESTADO_DIRETO | DUVIDA",
+  "dados": {
+    "servidor_alvo": "string ou TODOS",
+    "mes_referencia": "YYYY-MM",
+    "data_inicio": "YYYY-MM-DD ou null",
+    "data_fim": "YYYY-MM-DD ou null",
+    "dia_limite_entrega": "integer ou null",
+    "texto_aviso_whatsapp": "string pronta para disparo (use {{NOME}} para personalização)"
+  },
+  "mensagem_para_adm": "string de confirmação"
+}

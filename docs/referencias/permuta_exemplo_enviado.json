@@ -1,0 +1,16 @@
+{
+  "acao": "PERMUTA",
+  "servidor_solicitante": "SERVIDOR EXEMPLO",
+  "mes_referencia": "2026-11",
+  "dados": {
+    "data_original_saida": "2026-11-11",
+    "data_novo_plantao": "2026-11-12",
+    "data_inicio": null,
+    "data_fim": null,
+    "tipo_dobra": null,
+    "colega_substituto": "COLEGA EXEMPLO",
+    "exige_anexo": false
+  },
+  "resumo_para_rh": "Solicitação de permuta noturna (19:00 às 07:00): servidor pede troca entre os dias 11 e 12/11/2026, com cobertura pelo colega de exemplo.",
+  "mensagem_para_usuario": "Entendido! Montei o protocolo da sua permuta; confirme para enviar ao RH."
+}
